@@ -1,0 +1,38 @@
+@function z-index($key) {
+  @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}
+
+$z-index: (
+  header: 1,
+);
+
+// Transitions
+@mixin t($time) {
+  transition: all $time ease-in-out;
+}
+
+// Size
+@mixin s($width, $height: $width) {
+  width: $width + px;
+  height: $height + px;
+}
+
+// FontAwesome
+@mixin fontAwesome($unicode, $type: 'fas', $size: 16px, $color: #000, $display: block){
+  content: $unicode;
+  display: $display;
+  color: $color;
+  @if $type == 'fas' {
+    font: 900 $size Font Awesome\ 5 Free;
+  }
+  @if $type == 'fab' {
+    font: 300 $size Font Awesome\ 5 Brands;
+  } 
+  @if $type == 'far' {
+    font: 400 $size Font Awesome\ 5 Free;
+  } 
+}
