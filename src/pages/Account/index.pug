@@ -2,16 +2,19 @@ extends ../../layout/index.pug
 
 //- Template variables
 block vars
-  - var $templateName = 'Home';
-  - var $templateClass = 'page-home';
-  
+  - var $templateName = 'Account';
+  - var $templateClass = 'page-account';
+
 //- Page styles
 block append styles
   link(rel='stylesheet', href=`/arquivos/${$templateName}.css`)/
 
-//- Main Content
+//- Main content
 block content
-  
-  
+  secction.c-account
+    .container
+      vtex(.cmc:accountUserProfile)/
+
+//- Page scripts
 block append scripts
   script(src=`/arquivos/${$templateName}.js`) 

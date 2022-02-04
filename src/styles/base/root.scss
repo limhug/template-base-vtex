@@ -5,6 +5,7 @@ html {
 }
 
 body {
+  background-color: var(--color-white);
   box-sizing: border-box;
   min-height: 100%;
 
@@ -13,7 +14,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font-family: "Nunito Sans", sans-serif;
 }
 
 #ajaxBusy {

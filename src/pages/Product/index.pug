@@ -1,0 +1,87 @@
+extends ../../layout/index.pug
+
+//- Template variables
+block vars
+  - var $templateName = 'Product';
+  - var $templateClass = 'page-product';
+
+//- Page styles
+block append styles
+  link(rel='stylesheet', href=`/arquivos/${$templateName}.css`)/
+
+//- Main content
+block content
+
+  section.c-product
+    .wrapper
+      .c-product__content
+        .c-product__content-left
+          .c-info.d-lg-none
+            .c-info__breadcrumb
+              vtex(.cmc:breadCrumb)/
+            
+            .c-info__ref
+              span.c-info__ref-text REF:
+              span.c-info__ref-code
+                vtex(.cmc:productReference)/
+            
+            .c-info__title
+              vtex(.cmc:productName)/
+
+          .c-image(data-image="product-image", data-config="{'carouselDesktop': false, 'thumbVertical': true}")
+            vtex(.cmc:ProductImage zoom="on")/
+
+        .c-product__content-right
+          .c-info
+            .c-info__breadcrumb.d-none.d-lg-block
+              vtex(.cmc:breadCrumb)/
+            
+            .c-info__ref.d-none.d-lg-flex
+              span.c-info__ref-text REF:
+              span.c-info__ref-code
+                vtex(.cmc:productReference)/
+            
+            .c-info__title.d-none.d-lg-block
+              vtex(.cmc:productName)/
+            
+            .c-info__description
+              .c-info__description-text
+                vtex(.cmc:ProductDescription)/
+              .c-info__description-more
+
+            .c-info__data
+              .c-info__data-price
+                vtex(.cmc:skuPrice)/
+              
+              .c-info__data-measure
+                span Tabela de medidas
+
+            .c-info__variations
+              vtex(.cmc:skuRichSelection, changeImage="1")/
+
+            .c-info__buy
+              .qtdPrateleira
+                span.btnDec
+                input.qtdVal(type="text" value="1")/
+                span.btnAcr
+
+              vtex(.cmc:BuyButton)/
+
+            .c-info__delivery 
+              .c-info__delivery-cep
+                h3.c-info__delivery-title Calcule o frete e prazo de entrega.
+                vtex(.cmc:shippingValue)/
+                script!= '$(function(){ShippingValue()})'
+
+  section.c-productVitrine.carousel
+    .wrapper
+      .c-productVitrine__content
+        vtex:contentPlaceHolder(id="vitrine")/
+
+        .c-productVitrine__navigation
+          .c-productVitrine__navigation-prev(id="prev")
+          .c-productVitrine__navigation-next(id="next")
+      
+//- Page scripts
+block append scripts
+  script(src=`/arquivos/${$templateName}.js`) 

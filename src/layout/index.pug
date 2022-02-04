@@ -6,24 +6,24 @@ block vars
 doctype
 html(xmlns='http://www.w3.org/1999/xhtml', xmlns:vtex='http://www.vtex.com.br/2009/vtex-common', xmlns:vtex.cmc='http://www.vtex.com.br/2009/vtex-commerce', lang='pt-br')
   head
-    //- SEO
+    meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0')/
     vtex:metaTags/
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")/
-    //- Styles
+    vtex:contentPlaceHolder(id="tituloDaPagina")/
+    vtex:template(id="Global-Styles")/
     block styles
-    //- Theme Styles/Scripts
-    vtex:template(id=`Global-Styles`)/
-
     block richSnippetsHead
 
   body
-    vtex:template(id=`Header`)/
+    vtex:template(id="Header")/
+
     //- Main Content
     main(role='main', class=`${$templateClass}-main`)
       block content
+
     //- Footer
     block footer
-      vtex:template(id=`Footer`)/
+      vtex:template(id="Footer")/
+
     //- Scripts
     block scripts
-      vtex:template(id=`Global-Scripts`)/
+      vtex:template(id="Global-Scripts")/

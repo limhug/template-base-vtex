@@ -1,12 +1,26 @@
+import getVariables from '../../global/utils/icons'
+
+const _variables = getVariables('icones')
+
 const main = () => {
-  bodyEvent()
+  header()
 }
 
-const bodyEvent = () => {
-  document.querySelector('body')
-    .addEventListener('click', () => {
-      console.log('is body event')
-    })
+const header = () => {
+  $(function () {
+  
+    const headerComponent = {
+      init: function () {
+        headerComponent.icons()
+      },
+
+      icons: function () {
+        
+      },
+    }
+  
+    headerComponent.init()
+  })
 }
 
 export default main

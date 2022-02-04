@@ -1,0 +1,166 @@
+.page-account{
+  &-main{
+    margin-top: 134px;
+
+    @include d(md){
+      margin-top: 212px;
+    }
+  }
+
+  .c-account{
+    display: block;
+    margin: 30px 0;
+    font-family: $fontPrimary;
+
+    .vtex-account{
+      background-color: var(--color-white);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+
+      > .w-100{
+        display: grid;
+        padding: 20px;
+        gap: 20px;
+        margin: 0;
+
+        @include d(lg){
+          grid-template-columns: 190px 1fr;
+          gap: 0;
+        }
+      }
+
+      &__menu{
+        padding: 0;
+
+        .vtex-account_menu-link{
+          &.b--action-primary{
+            border-color: var(--color-secondary);
+            color: var(--color-secondary) !important;
+          }
+        }
+      }
+
+      .vtex-pageHeader__container{
+        padding: 0;
+      }
+
+      .vtex-pageHeader-link__container{
+        button{
+          outline: 0;
+          @include t(0.3s);
+
+          span{
+            display: flex;
+            align-items: center;
+            color: var(--color-secondary);
+          }
+
+          &:hover{
+            opacity: 0.75;
+          }
+        }
+      }
+
+      .vtex-pageHeader__title{
+        font-family: $fontPrimary;
+        color: var(--color-secondary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .vtex-pageHeader__children{
+        button{
+          outline: 0;
+          background-color: var(--color-secondary);
+          color: var(--color-white);
+          border: 0;
+          @include t(0.3s);
+
+          &:hover{
+            background-color: var(--color-secondary);
+          }
+        }
+      }
+
+      .vtex-account__user-image{
+        display: none !important;
+      }
+
+      .vtex-account__page{
+        iframe{
+          body{
+            background-color: var(--color-white) !important;
+          }
+
+          .vtex-input__label{
+            font-family: $fontPrimary !important;
+          }
+        }
+      }
+
+      .vtex-account__page-body{
+        padding: 0;
+
+        main{
+          @include d(lgMax){
+            display: grid;
+            grid-template-columns: 1fr;
+
+            > div{
+              width: 100%;
+            }
+          }
+        }
+
+        .vtex-dropdown__arrow{
+          color: #3f3f40 !important;
+        }
+
+        .c-link{
+          color: var(--color-secondary) !important;
+        }
+
+        iframe{
+          .bg-action-primary{
+            outline: 0;
+            background-color: var(--color-secondary) !important;
+            color: var(--color-white) !important;
+            border: 0;
+            @include t(0.3s);
+
+            &:hover{
+              background-color: var(--color-secondary) !important;
+            }
+          }
+
+        }
+
+        .c-on-base{
+          font-family: $fontPrimary;
+        }
+
+        article{
+          main{
+            padding: 20px !important;
+          }
+
+          footer{
+            padding: 0 20px 20px;
+
+            button{
+              background-color: var(--color-secondary) !important;
+              color: var(--color-white);
+              border: 0;
+              outline: 0;
+              @include t(0.3s);
+
+              &:hover{
+                background-color: var(--color-secondary) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

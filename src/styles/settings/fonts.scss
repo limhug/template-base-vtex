@@ -1,10 +1,23 @@
 // Fontawesome
 @import url("https://use.fontawesome.com/releases/v5.12.1/css/all.css");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap");
+
+$fontawesome: "Font Awesome 5 All";
 
 // Font Family
-$fontawesome: "Font Awesome 5 All";
-$montserrat: "Montserrat", sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: "glacialIndiference-regular";
+  src: url("https://smk.vteximg.com.br/arquivos/GlacialIndifference-Regular.otf.css");
+}
+
+@font-face {
+  font-family: "libre-regular";
+  src: url("https://smk.vteximg.com.br/arquivos/libre-regular.ttf.css");
+}
+
+$fontPrimary: "glacialIndiference-regular";
+$fontSecondary: "libre-regular";
 
 // Font base em px.
 $font-base: 16;

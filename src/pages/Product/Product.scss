@@ -1,0 +1,906 @@
+.page-product{
+  
+  &-main{
+    margin-top: 114px;
+
+    @include d(md){
+      margin-top: 182px;
+    }
+  }
+  
+  .c-product{
+    background-color: var(--color-white);
+    padding: 20px 0;
+    margin-bottom: 30px;
+
+    @include d(lg){
+      padding: 30px 0;
+    }
+
+    &__content{
+      position: relative;
+      
+      @include d(lg){
+        display: grid;
+        gap: 30px;
+        grid-template-columns: 1fr auto;
+      }
+    }
+  }
+
+  .c-image {
+    position: relative;
+
+    #show {
+      position: relative;
+
+      #include {
+        padding-left: 97px;
+
+        #image {
+          background: #fff;
+          border: 1px solid #f2f6f7;
+          border-radius: 3px;
+          padding: 2px;
+
+          .zoomPad {
+            overflow: hidden;
+            position: relative;
+          }
+
+          .zoomWindow {
+            overflow: hidden;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            top: 0 !important;
+            z-index: 10 !important;
+            border-radius: 3px;
+          }
+
+          .image-zoom {
+            display: block;
+            text-align: center;
+            max-width: 530px;
+            margin: 0 auto;
+          }
+
+          #image-main {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: 460px;
+
+            @include d(xl) {
+              height: 550px;
+            }
+          }
+
+          .zoomWrapperImage {
+            img {
+              min-width: 1200px;
+            }
+          }
+        }
+      }
+
+      .thumbs {
+        top: 0;
+        left: 0;
+        width: 71px;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .slick-prev,
+        .slick-next {
+          position: relative;
+          left: initial;
+          right: initial;
+          transform: rotate(90deg);
+        }
+
+        .slick-arrow {
+          background: hsla(0, 0%, 85%, 0.24);
+          width: 35px;
+          height: 35px;
+          border-radius: 50px;
+          z-index: 9;
+
+          &::before {
+            display: none;
+          }
+
+          svg {
+            fill: #a09d9d;
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        .slick-list {
+          @include d(lg) {
+            height: 380px !important;
+          }
+
+          @include d(xl) {
+            height: 442px !important;
+          }
+        }
+
+        &.slick-vertical {
+          padding: 5px 0;
+
+          @include d(xl) {
+            padding: 20px 0;
+          }
+        }
+
+        .slick-arrow {
+          background: transparent;
+        }
+
+        li {
+          text-align: center;
+          padding: 2px 0;
+
+          @include d(xl) {
+            padding: 10px 0;
+          }
+
+          a,
+          button {
+            @include s(70, 85);
+            border-radius: 3px;
+            text-align: center;
+            background: #ffffff;
+            padding: 6px;
+            border: 1px solid #d8d8d8;
+            display: inline-block;
+            box-shadow: 0 4px 10px 0 transparent;
+
+            img {
+              width: auto;
+              height: 70px;
+              display: block;
+              margin: auto;
+            }
+
+            &.ON,
+            &:hover {
+              border-color: var(--color-secondary);
+            }
+          }
+        }
+      }
+    }
+
+    .product-image-mobile {
+      position: relative;
+      
+      .icon-left, .icon-right{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        z-index: 9;
+      }
+      
+      .icon-left{
+        
+      }
+      
+      .icon-right{
+        right: 0;
+      }
+      
+      img {
+        margin: auto;
+      }
+
+      .slick-list{
+        overflow: hidden;
+        
+        .slick-track{
+          display: flex;
+
+          .slick-slide{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+
+  .c-info{
+    font-family: $fontPrimary;
+    background-color: var(--color-white);
+    width: 100%;
+    
+    @include d(lg){
+      width: 400px;
+    }
+
+    @include d(xl){
+      width: 560px;
+    }
+
+    &__breadcrumb {
+      background-color: var(--color-white);
+    
+      ul {
+        font-family: $fontPrimary;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 0 10px;
+
+        @include d(lg){
+          justify-content: flex-start;
+        }
+    
+        li {
+          strong {
+            font-weight: normal;
+          }
+    
+          a {
+            @include f(14);
+            color: var(--color-gray-dark);
+            font-weight: normal;
+    
+            &:hover{
+              color: var(--color-secondary);
+              text-decoration: underline;
+            }
+          }
+    
+          .divisoria {
+            margin: 0 15px;
+            width: 20px;
+            height: 15px;
+            color: var(--color-gray-dark);
+          }
+    
+          &.last {
+            a{
+              color: var(--color-secondary);
+              font-weight: 800;
+
+              &:hover{
+                text-decoration: none;
+              }
+            }
+            .divisoria{
+              display: none;
+            }
+          }
+        }
+    
+        .resultado-busca-termo{
+          .label{
+            display: none;
+          }
+    
+          .value{
+            @include f(14);
+            color: var(--color-secondary);
+            font-weight: 800;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    &__ref{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gray-dark);
+      margin-bottom: 5px;
+
+      @include d(lg){
+        justify-content: flex-start;
+      }
+
+      &-text{
+        margin-right: 5px;
+      }
+    }
+
+    &__title{
+      color: var(--color-secondary);
+      text-transform: uppercase;
+      @include f(26);
+      letter-spacing: 1px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-align: center;
+
+      @include d(lg){
+        text-align: left;
+      }
+    }
+
+    &__description{
+      margin: 10px 0 20px;
+
+      @include d(lg){
+        margin: 0 0 20px;
+      }
+
+      &-text{
+        @include f(16);
+        color: var(--color-gray-dark);
+        text-align: center;
+
+        @include d(lg){
+          text-align: left;
+        }
+      }
+    }
+
+    &__data{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+
+      @include d(lg){
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      
+      &-price{
+        margin-bottom: 15px;
+
+        @include d(lg){
+          margin-bottom: 0;
+        }
+        .valor-por{
+          @include f(0);
+
+          .skuBestPrice{
+            @include f(32);
+            color: var(--color-secondary);
+            font-weight: normal;
+            font-style: normal;
+          }
+        }
+
+        .valor-dividido{
+          @include f(16);
+          font-style: normal;
+        }
+
+        .preco-a-vista{
+          display: none !important;
+        }
+      }
+
+      &-measure{
+        span{
+          text-decoration: underline;
+          cursor: pointer;
+
+          &:hover{
+            color: var(--color-secondary);
+          }
+        }
+      }
+    }
+
+    &__variations{
+      margin-bottom: 30px;
+
+      .Cor{
+        display: none;
+      }
+
+      .Tamanho{
+        .specification{
+          text-align: center;
+          color: var(--color-gray-dark);
+          margin-bottom: 2px;
+
+          @include d(lg){
+            text-align: left;
+          }
+        }
+
+        .skuList{
+          .group_1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+
+            @include d(lg){
+              display: grid;
+              grid-template-columns: repeat(8, 1fr);
+              justify-content: center;
+            }
+          }
+
+          span {
+            display: flex;
+            flex-wrap: wrap;
+  
+            input {
+              display: none;
+            }
+  
+            label {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: 0;
+              width: 60px;
+              height: 40px;
+              background-color: var(--color-white);
+              @include f(14, 14);
+              text-transform: uppercase;
+              color: var(--color-secondary);
+              border: 1px solid rgba(0,0,0,0.2);
+              cursor: pointer;
+              
+              @include d(lg){
+                width: 100%;
+              }
+  
+              &:hover {
+                color: var(--color-white);
+                background-color: var(--color-secondary);
+                border: 1px solid var(--color-secondary);
+              }
+  
+              &.sku-picked {
+                color: var(--color-white);
+                background-color: var(--color-secondary);
+                border: 1px solid var(--color-secondary);
+              }
+  
+              &.item_unavaliable {
+                display: none;
+              }
+
+              &.skuespec_Pp{order: 1;}
+              &.skuespec_P{order: 2;}
+              &.skuespec_M{order: 3;}
+              &.skuespec_G{order: 4;}
+              &.skuespec_Gg{order: 5;}
+              &.skuespec_30{order: 6;}
+              &.skuespec_32{order: 7;}
+              &.skuespec_34{order: 8;}
+              &.skuespec_36{order: 9;}
+              &.skuespec_38{order: 10;}
+              &.skuespec_40{order: 11;}
+              &.skuespec_42{order: 12;}
+              &.skuespec_44{order: 13;}
+              &.skuespec_46{order: 14;}
+              &.skuespec_48{order: 15;}
+              &.skuespec_50{order: 16;}
+            }
+          }
+        }
+      }
+
+      &-quantity{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include d(lg){
+          justify-content: flex-start;
+        }
+        .text{
+          width: max-content;
+          margin-top: 10px;
+          display: flex;
+          align-items: center;
+          background-color: var(--color-silver);
+          color: var(--color-red);
+          padding: 5px 10px;
+  
+          .icon-exclamation{
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            fill: var(--color-red);
+          }
+        }
+      }
+    }
+
+    &__buy{
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include d(lg){
+        justify-content: flex-start;
+      }
+
+      .qtdPrateleira{
+        display: none;
+      }
+      .buy-button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 220px;
+        @include f(16, 45);
+        letter-spacing: 1px;
+        background-color: var(--color-buy);
+        border: 1px solid var(--color-buy);
+        color: var(--color-white);
+        text-align: center;
+        text-transform: uppercase;
+        margin-top: 5px;
+        cursor: pointer;
+  
+        &:hover{
+          opacity: 0.9;
+        }
+      }
+    }
+
+    &__delivery {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include d(lg){
+        justify-content: flex-start;
+      }
+
+      .productCep {
+        width: 100%;
+        
+        &__title{
+          text-align: center;
+
+          @include d(lg){
+            text-align: left;
+          }
+        }
+
+        &__form {
+          &-calculate {
+            display: flex;
+            align-items: center;
+
+            @include d(xs) {
+              flex-direction: column;
+            }
+
+            .form {
+              @include d(xs) {
+                margin-bottom: 20px;
+              }
+            }
+          }
+
+          input {
+            background-color: var(--color-white);
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 3px;
+            margin-right: 5px;
+            padding: 0 15px;
+            width: 140px;
+            height: 40px;
+            letter-spacing: 8px;
+            text-align: center;
+
+            &::placeholder {
+              letter-spacing: normal;
+            }
+          }
+
+          input[type="number"] {
+            -moz-appearance: textfield;
+            appearance: textfield;
+
+            &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+            }
+          }
+
+          &-link {
+            display: none;
+            @include f(12);
+            text-decoration: underline;
+            margin-left: 10px;
+
+            &.active {
+              display: block;
+            }
+          }
+        }
+
+        &__refreshCalc {
+          display: none;
+
+          &.active {
+            display: block;
+          }
+        }
+
+        &__title {
+          display: none;
+          @include f(14);
+          font-weight: 600;
+          margin-bottom: 10px;
+
+          &.active {
+            display: block;
+          }
+
+          @include d(xs) {
+            text-align: center;
+          }
+        }
+
+        &__header {
+          display: none;
+
+          &.active {
+            display: block;
+          }
+        }
+
+        &__content {
+          &-delivery {
+            position: relative;
+            margin-top: 30px;
+
+            .item {
+              &:nth-of-type(1) {
+                &::before {
+                  position: absolute;
+                  top: -30px;
+                  content: "Opções de entrega disponíveis para seu CEP";
+                  display: block;
+                  font-weight: 600;
+                  margin-bottom: 10px;
+
+                  @include d(xs) {
+                    top: -40px;
+                  }
+                }
+              }
+            }
+          }
+
+          &-retire {
+            position: relative;
+
+            .item {
+              &:nth-of-type(1) {
+                margin-top: 60px;
+
+                @include d(xs) {
+                  margin-top: 70px;
+                }
+
+                &::before {
+                  position: absolute;
+                  top: -30px;
+                  content: "Lojas disponíveis para retirada com frete grátis!";
+                  display: block;
+                  font-weight: 600;
+
+                  @include d(xs) {
+                    top: -40px;
+                  }
+                }
+              }
+
+              .valor {
+                background-color: var(--color-primary);
+                color: var(--color-black);
+                font-weight: 700;
+                padding: 3px 5px;
+                @include f(10, 10);
+                text-transform: uppercase;
+              }
+            }
+          }
+
+          &-delivery,
+          &-retire {
+            margin-bottom: 20px;
+
+            .item {
+              @include f(14);
+              padding: 5px;
+              border-radius: 5px;
+              display: grid;
+              grid-template-columns: 40px 1fr;
+              gap: 10px;
+              align-items: center;
+              background-color: var(--color-silver);
+              margin-bottom: 5px;
+
+              .icon {
+                width: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &-truck,
+                &-store {
+                  width: 30px;
+                  height: auto;
+                }
+              }
+
+              .info {
+                .entrega {
+                  position: relative;
+                  margin-bottom: 5px;
+                  text-transform: uppercase;
+                }
+
+                .time {
+                  display: flex;
+                  align-items: center;
+
+                  .estimativa {
+                    margin-right: 3px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &__submit-cep,
+        &__refreshCalc {
+          margin: 0 auto;
+          background: var(--color-black);
+          color: var(--color-white);
+          padding: 0 15px;
+          @include f(14, 40);
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          font-weight: 600;
+        }
+      }
+
+      &-cep {
+        h3 {
+          display: none;
+        }
+        .frete {
+          display: none;
+        }
+        #calculoFrete {
+          position: relative;
+
+          &::before {
+            content: "Calcule o frete e prazo de entrega.";
+            @include f(16);
+            color: var(--color-black);
+            font-weight: 400;
+            display: block;
+            margin-bottom: 10px;
+          }
+
+          .contentWrapper {
+            .header {
+              h1,
+              h2,
+              .close {
+                display: none;
+              }
+            }
+
+            #ctl00_Conteudo_upnlContent {
+              .content {
+                display: flex;
+                flex-direction: column;
+
+                fieldset {
+                  display: flex;
+                  flex-wrap: wrap;
+                  align-items: center;
+                  margin: 0 0 10px;
+                  border: 0;
+
+                  .prefixo {
+                    @include f(0);
+
+                    input {
+                      background: var(--color-white);
+                      padding: 0.8em;
+                      max-width: 150px;
+                      @include f(16);
+                      border: 1px solid rgba(0,0,0,0.05);
+
+                      @include d(ipad) {
+                        max-width: 130px;
+                      }
+                    }
+                  }
+
+                  .quantity {
+                    display: none;
+                  }
+
+                  .frete-calcular {
+                    input {
+                      padding: 0.9em;
+                      background: var(--color-black);
+                      cursor: pointer;
+                      @include f(15);
+                      color: var(--color-white);
+                      font-weight: 600;
+                      border: 0;
+                    }
+                  }
+                  .cep-busca {
+                    @include d(mdMax){
+                      display: block;
+                      width: 100%;
+                    }
+
+                    @include d(md){
+                      margin-left: 10px;
+                    }
+
+                    a {
+                      @include f(13);
+                      font-weight: 600;
+                      text-decoration: underline;
+                      margin-top: 5px;
+                    }
+                  }
+                }
+                .freight-values {
+                  th {
+                    text-align: left;
+                    @include f(13);
+                    border-bottom: 1px solid var(--color-black);
+                    padding: 5px;
+                  }
+
+                  td {
+                    @include f(13);
+                    padding: 5px;
+                  }
+                }
+              }
+            }
+
+            .footer {
+              .close {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .c-productVitrine{
+    margin-bottom: 50px;
+
+    h2{
+      font-family: $fontSecondary;
+      @include f(40);
+      text-align: center;
+      color: var(--color-secondary);
+      margin-bottom: 15px;
+    }
+  }
+}

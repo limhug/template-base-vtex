@@ -1,4 +1,5 @@
-import './Home.scss'
+/* eslint-disable no-undef */
+import './Account.scss'
 
 import getVariables from '../../global/utils/icons'
 
@@ -6,16 +7,17 @@ const _variables = getVariables('icones')
 
 $(function () {
 
-  const pageHome = {
+  const pageAccount = {
     init: function () {
-      pageHome.icons()
+      pageAccount.icons()
     },
 
     icons: function () {
-
+      
     },
+
   }
 
-  pageHome.init()
+  pageAccount.init()
 
 })

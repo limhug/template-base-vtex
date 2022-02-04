@@ -1,0 +1,164 @@
+.c-instagram{
+  position: relative;
+  background-color: var(--color-third);
+  padding: 50px 0;
+
+  &::before{
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: -15px;
+    background-image: url('/arquivos/flor-esquerda.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 130px;
+    height: 145px;
+    overflow: hidden;
+
+    @include d(mdMax){
+      top: -40px;
+      width: 90px;
+      left: -10px;
+    }
+  }
+
+  &::after{
+    content: '';
+    position: absolute;
+    top: -35px;
+    right: -20px;
+    background-image: url('/arquivos/folhas-direita.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 140px;
+    height: 100px;
+    overflow: hidden;
+
+    @include d(mdMax){
+      right: -49px;
+      height: 75px;
+      top: -22px;
+    }
+  }
+	
+	h2{
+		@include f(24);
+		text-align: center;
+		font-weight: 700;
+		margin-bottom: 5px;
+		color: var(--color-brown);
+	}
+
+  
+	&__content{
+    display: grid;
+		gap: 10px;
+    
+    &-title{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      
+      .icon-insta{
+        width: 40px;
+        height: 40px;
+        fill: var(--color-secondary);
+        margin-bottom: 5px;
+      }
+      
+      span{
+        font-family: $fontPrimary;
+        @include f(24);
+        text-transform: uppercase;
+        letter-spacing: 10px;
+        color: var(--color-secondary);
+        font-weight: normal;
+        margin-bottom: 25px;
+      }
+  
+      a{
+        font-family: $fontPrimary;
+        @include f(24);
+        font-weight: normal;
+        color: var(--color-secondary);
+      }
+    }
+
+    &-list{
+      display: grid;
+		  grid-template-columns: repeat(2, 1fr);
+		  gap: 10px;
+
+      @include d(sm){
+        grid-template-columns: repeat(3, 1fr);
+      }
+  
+      @include d(lg){
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
+
+    &-item{
+      overflow: hidden;
+      width: 100%;
+      height: 197px;
+      border-radius: 5px;
+
+      @include d(sm){
+        width: 165px;
+        height: 165px;
+      }
+      @include d(md){
+        width: 225px;
+        height: 225px;
+      }
+      @include d(lg){
+        width: 147px;
+        height: 147px;
+      }
+      @include d(xl){
+        width: 177px;
+        height: 177px;
+      }
+      @include d(xxl){
+        width: 207px;
+        height: 207px;
+      }
+    }
+
+		&-image{
+			border-radius: 5px;
+			width: 100%;
+      height: 197px;
+			object-fit: cover;
+			@include t(0.3s);
+
+      @include d(sm){
+        width: 165px;
+        height: 165px;
+      }
+      @include d(md){
+        width: 225px;
+        height: 225px;
+      }
+      @include d(lg){
+        width: 147px;
+        height: 147px;
+      }
+      @include d(xl){
+        width: 177px;
+        height: 177px;
+      }
+      @include d(xxl){
+        width: 207px;
+        height: 207px;
+      }
+
+			&:hover{
+				transform: scale(1.1);
+			}
+		}
+	}
+}

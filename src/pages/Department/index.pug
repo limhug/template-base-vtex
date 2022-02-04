@@ -1,0 +1,65 @@
+extends ../../layout/index.pug
+
+//- Template variables
+block vars
+  - var $templateName = 'Department';
+  - var $templateClass = 'page-department';
+
+//- Page styles
+block append styles
+  link(rel='stylesheet', href=`/arquivos/${$templateName}.css`)/
+
+//- Main content
+block content
+  - var idShelf = "32314607-064d-492c-b2c8-bd001ed4bbeb"
+
+  section.c-fullbanner
+    .c-fullbanner__content
+      .c-fullbanner__mobile.d-md-none
+        vtex:contentPlaceHolder(id="fullbanner-mobile-768x700")/
+
+      .c-fullbanner__desktop.d-none.d-md-block
+        vtex:contentPlaceHolder(id="fullbanner-desktop-1920x870")/
+
+      .c-fullbanner__info
+        .c-fullbaner__info-content
+          vtex:contentPlaceHolder(id="fullbanner-info")/
+
+    .c-breadcrumb
+      .c-breadcrumb__content
+        vtex(.cmc:breadCrumb)/
+    
+    .c-list
+      .wrapper
+        .c-list__tags
+        .c-list__top
+          .c-filters.js-filter
+            .c-filters__link
+              span Filtrar
+
+            .c-filters__content(style="display: none;")
+              .c-filters__content-header
+                h2.c-filters__content-title
+                  span Filtrar
+                
+              .c-filters__content-body
+                vtex(.cmc:searchNavigator)/
+
+          .c-orderBy
+            h5.c-orderBy__title
+              span Ordenar por
+
+            .c-orderBy__box(style="display: none;")
+              a(id="OrderByReviewRateDESC", data-value="?O=OrderByReviewRateDESC", title="Relevância") Relevância
+              a(id="OrderByTopSaleDESC", data-value="?O=OrderByTopSaleDESC", title="Mais Vendidos") Mais Vendidos
+              a(id="OrderByReleaseDateDESC", data-value="?O=OrderByReleaseDateDESC", title="Data de Lançamento") Data de Lançamento
+              a(id="OrderByPriceASC", data-value="?O=OrderByPriceASC", title="Menor Preço") Menor Preço
+              a(id="OrderByPriceDESC", data-value="?O=OrderByPriceDESC", title="Maior Preço") Maior Preço
+              a(id="OrderByNameASC", data-value="?O=OrderByNameASC", title="De A a Z") De A a Z
+
+        .c-list__shelf
+          vtex(.cmc:searchResult layout=idShelf itemCount="16" columnCount="16")/
+
+//- Page scripts
+block append scripts
+  script(src=`/arquivos/${$templateName}.js`) 

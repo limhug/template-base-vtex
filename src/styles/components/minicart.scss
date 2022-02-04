@@ -1,0 +1,526 @@
+.c-minicart{
+  font-family: $fontPrimary;
+  position: fixed;
+  top: 0;
+  right: -100px;
+  // right: 0;
+  background: var(--color-silver);
+  bottom: 0;
+  width: 100%;
+  max-width: 500px;
+  height: 100vh;
+  overflow: hidden;
+  transform: translateX(100%);
+  @include t(0.3s);
+  z-index: 999999999;
+
+  &.open{
+    right: 0;
+    transform: translateX(0);
+  }
+  
+  &__overlay{
+    display: none;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.75);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999999;
+   
+    &.open {
+      display: block;
+    }
+  }
+
+  &__header{
+    padding: 20px;
+
+    &-links{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-transform: uppercase;
+      color: var(--color-gray);
+
+      .close{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        @include f(14, 14);
+
+        .icon-left{
+          height: 10px;
+          margin-right: 8px;
+          fill: var(--color-gray);
+        }
+
+        &:hover{
+          color: var(--color-secondary);
+
+          .icon-left{
+            fill: var(--color-secondary);
+          }
+        }
+      }
+
+      .divisoria{
+        width: 100%;
+        height: 1.1px;
+        display: block;
+        background-color: #c7c7c7;
+        margin: 0 15px;
+      }
+
+      .text{
+        color: var(--color-secondary);
+        font-weight: 600;
+        @include f(18, 18);
+        letter-spacing: 1px;
+      }
+    }
+  }
+
+  &__content{
+    position: relative;
+    padding: 0 0 0 20px;
+
+    &-title{
+      width: 100%;
+      color: var(--color-gray);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      @include f(18,18);
+      text-transform: uppercase;
+
+      @include d (mdMax){
+        @include f(16, 16);
+      }
+
+      &-total{
+        display: flex;
+        align-items: center;
+      }
+
+      span{
+        display: flex;
+        align-items: center;
+
+      }
+      
+      .c-minicart__badge{
+        color: var(--color-secondary);
+        @include f(20,20);
+        font-weight: 600;
+        margin: 0 5px;
+
+        @include d (mdMax){
+          @include f(18, 18);
+        }
+      }
+
+      &::after{
+        content: '';
+        margin: 30px 0 20px;
+        background-image: url('/arquivos/cart-folhas-divisoria.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 320px;
+        height: 55px;
+
+        @include d(mdMax){
+          margin: 10px 0 20px;
+          width: 250px;
+          height: 45px;
+        }
+      }
+    }
+
+    &-list{
+      overflow: auto;
+      height: calc(100% - 90px);
+      scrollbar-width: thin;
+      scrollbar-color: #f2f2f2;
+      padding-right: 20px;
+      padding-bottom: 60px;
+
+      @include d(mdMax){
+        padding-bottom: 15px;
+      }
+      
+      &::-webkit-scrollbar{
+        width: 6px;
+        background-color: #f2f2f2;
+        padding-left: 10px;
+      }
+      
+      &::-webkit-scrollbar-track{
+        box-shadow: inset 0 0 6px #f2f2f2;
+        border-radius: 10px;
+        background-color: #f2f2f2;
+      }
+      
+      &::-webkit-scrollbar-thumb{
+        border-radius: 10px;
+        box-shadow: inset 0 0 6px #d9d9d9;
+        background-color: #f2f2f2;
+      }
+    }
+  }
+
+  &__box{
+    background-color: var(--color-white);
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+
+    @include d(mdMax){
+      padding: 10px;
+      gap: 10px;
+    }
+
+    &-info{
+      display: grid;
+      grid-template-columns: 1fr 50px;
+      gap: 20px;
+    }
+
+    &-title{
+      @include f(14);
+      color: var(--color-gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+
+      @include d(mdMax){
+        @include f(12);
+      }
+
+      a{
+        &:hover{
+          color: var(--color-gray);
+        }
+      }
+    }
+
+    &-qtde{
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      margin-right: 20px;
+      
+      @include d(mdMax){
+        margin-right: 10px;
+        padding-right: 40px;
+      }
+
+      .qtde-remove, .qtde-add{
+        display: flex;
+        color: var(--color-secondary);
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        
+        @include d(mdMax){
+          position: absolute;
+        }
+      }
+
+      
+      @include d(mdMax){
+        .qtde-add{
+          top: 0;
+          right: 0;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+          height: 30px;
+        }
+  
+        .qtde-remove{
+          right: 0;
+          bottom: 0;
+          height: 30px;
+        }
+      }
+
+      @include d(md){
+        .qtde-remove{
+          border-right: 1px solid rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      .qtde-value{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        color: var(--color-gray);
+        border-right: 1px solid rgba(0, 0, 0, 0.2);
+
+        @include d(mdMax){
+          height: 60px;
+        }
+      }
+    }
+
+    &-qtdePrice{
+      display: flex;
+      align-items: center;
+    }
+
+    &-price{
+      display: flex;
+      flex-direction: column;
+
+      .list-price{
+        @include f(14);
+        color: var(--color-gray-clean);
+        text-decoration: line-through;
+
+        @include d(mdMax){
+          @include f(13);
+        }
+      }
+
+      .price{
+        @include f(22, 22);
+        color: var(--color-secondary);
+
+        @include d(mdMax){
+          @include f(18, 18);
+        }
+      }
+    }
+
+    &-remove{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      border-left: 1px solid rgba(0, 0, 0, 0.2);
+      padding-right: 5px;
+      cursor: pointer;
+
+      @include d(mdMax){
+        padding-right: 7px;
+      }
+
+      i{
+        color: var(--color-red-dark);
+        @include f(30, 80);
+      }
+    }
+  }
+
+  &__empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    span{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      @include f(24, 24);
+      margin: 50px 0;
+
+      &::before{
+        content: "0";
+        position: absolute;
+        background-color: var(--color-secondary);
+        font-family: $fontPrimary;
+        color: var(--color-white);
+        @include f(18, 18);
+        width: 30px;
+        height: 30px;
+        right: 80px;
+        top: 35px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include t(0.3s);
+      }
+
+      .icon-bag{
+        fill: var(--color-secondary);
+        height: 60px;
+        margin-bottom: 15px;
+
+      }
+    }
+
+    button{
+      background-color: var(--color-secondary);
+      color: var(--color-white);
+      padding: 0 20px;
+      @include f(18, 60);
+      text-transform: uppercase;
+      @include t(0.3s);
+
+      &:hover{
+        opacity: 0.9;
+      }
+    }
+  }
+
+  &__footer{
+    position: relative;
+    width: 100%;
+    padding: 20px 50px;
+    position: fixed;
+    bottom: 0;
+    background-color: var(--color-white);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    @include d(mdMax){
+      padding: 20px;
+    }
+
+    &::before{
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: -29px;
+      background-image: url('/arquivos/folhas-esquerda-cart.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 114px;
+      height: 100px;
+      overflow: hidden;
+
+      @include d(mdMax){
+        top: -40px;
+        width: 90px;
+      }
+    }
+
+    &::after{
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -29px;
+      background-image: url('/arquivos/folhas-direita-cart.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 114px;
+      height: 78px;
+      overflow: hidden;
+
+      @include d(mdMax){
+        right: -50px;
+        height: 60px;
+        top: -35px;
+      }
+    }
+
+    &-frete {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+
+      @include d(mdMax){
+        margin-bottom: 15px;
+      }
+      
+      .text-bar{
+        @include f(16);
+        color: var(--color-gray-dark);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+
+        @include d(mdMax){
+          @include f(14);
+        }
+
+        strong, .valor-moeda {
+          color: var(--color-secondary);
+          @include f(20);
+
+          @include d(mdMax){
+            @include f(18);
+          }
+        }
+      }
+
+      .bar{
+        position: relative;
+        width: 100%;
+        height: 15px;
+        background-color: var(--color-silver-clean);
+        
+
+        &-color {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 15px;
+          background: var(--color-secondary);
+          @include t(0.3s);
+        }
+      }
+      
+    }
+
+    &-subtotal{
+      @include f(18, 18);
+      color: var(--color-gray);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    &-actions{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .goToCart{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 220px;
+        @include f(16, 45);
+        background-color: var(--color-buy);
+        border: 1px solid var(--color-buy);
+        color: var(--color-white);
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        @include t(0.3s);
+
+        &:hover{
+          opacity: 0.9;
+        }
+      }
+
+      .continueToBuy{
+        @include f(14, 14);
+        color: var(--color-gray);
+        text-transform: uppercase;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__value{
+    @include f(22, 22);
+    color: var(--color-secondary);
+  }
+
+}
