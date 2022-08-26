@@ -9,7 +9,7 @@
 #vtexIdUI-global-loader{
   z-index: 9999 !important;
   background: initial !important;
-  background-color: var(--color-black) !important;
+  background-color: color(black) !important;
 }
 
 .vtexIdUI{
@@ -59,7 +59,7 @@
       width: 60% !important;
 
       input#access-code{
-        color: var(--color-secondary) !important;
+        color: color(primary) !important;
         letter-spacing: 5px;
       }
     }
@@ -71,7 +71,7 @@
 
   .vtexId-link,
   a{
-    color: var(--color-black) !important;
+    color: color(black) !important;
   }
 }
 

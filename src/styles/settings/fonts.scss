@@ -20,15 +20,15 @@ $fontPrimary: "glacialIndiference-regular";
 $fontSecondary: "libre-regular";
 
 // Font base em px.
-$font-base: 16;
+$font-base: 10;
 
 // Cálcula fonte de px para rem.
 @mixin f($fontSize, $lineHeight: ($fontSize + 2)) {
   $font-rem: ($fontSize / $font-base);
+  $linheHeight-rem: ($lineHeight / $font-base);
 
   @if $fontSize == $fontSize {
-    font-size: $fontSize + px; // Para IE6, IE7, IE8
     font-size: $font-rem + rem;
-    line-height: $lineHeight + px;
+    line-height: $linheHeight-rem + rem;
   }
 }

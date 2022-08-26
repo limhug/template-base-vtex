@@ -1,63 +1,63 @@
 // Breakpoints
 @mixin d($device) {
   @if $device == xs {
-    @media (max-width: 35.99875em) {
+    @media (max-width: 35.999em) { // até 576px
       @content;
     }
   } @else if $device == sm {
-    @media (min-width: 36em) {
+    @media (min-width: 36.000em) { // a partir de 576px
       @content;
     }
   } @else if $device == smMinMax {
-    @media (min-width: 36em) and (max-width: 47.99875em) {
+    @media (min-width: 36.000em) and (max-width: 47.999em) { // de 576px até 768px
       @content;
     }
   } @else if $device == md {
-    @media (min-width: 48em) {
+    @media (min-width: 48.000em) { // a partir de 768px
       @content;
     }
   } @else if $device == mdMax {
-    @media (max-width: 47.99875em) {
+    @media (max-width: 47.999em) { // até 768px
       @content;
     }
   } @else if $device == mdMinMax {
-    @media (min-width: 48em) and (max-width: 61.99875em) {
+    @media (min-width: 48.000em) and (max-width: 61.999em) { // de 768px até 992px
       @content;
     }
   } @else if $device == lg {
-    @media (min-width: 62em) {
+    @media (min-width: 62.000em) { // a partir de 992px
       @content;
     }
   } @else if $device == lgMax {
-    @media (max-width: 61.99875em) {
+    @media (max-width: 61.999em) { // até 992px
       @content;
     }
   } @else if $device == lgMinMax {
-    @media (min-width: 62em) and (max-width: 74.99875em) {
+    @media (min-width: 62.000em) and (max-width: 74.999em) { // de 992px até 1200px
       @content;
     }
   } @else if $device == xl {
-    @media (min-width: 75em) {
+    @media (min-width: 75.000em) { // a partir de 1200px
       @content;
     }
   } @else if $device == xlMax {
-    @media (max-width: 74.99875em) {
+    @media (max-width: 74.999em) { // até 1200px
       @content;
     }
   } @else if $device == xlMinMax {
-    @media (min-width: 75em) and (max-width: 87.49875em) {
+    @media (min-width: 75.000em) and (max-width: 87.499em) { // de 1200px até 1400px
       @content;
     }
   } @else if $device == xxl {
-    @media (min-width: 87.5em) {
+    @media (min-width: 87.500em) { // a partir de 1400px
       @content;
     }
   } @else if $device == xxlMax {
-    @media (max-width: 87.49875em) {
+    @media (max-width: 87.499em) { // até 1400px
       @content;
     }
   } @else {
-    @media (min-width: ($device / 16) + em) {
+    @media (min-width: ($device / 16) + em) { // a partir de xxpx - colocar somente números ex: 320
       @content;
     }
   }

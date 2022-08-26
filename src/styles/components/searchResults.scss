@@ -41,7 +41,7 @@
       }
       
       &-item{
-        background-color: var(--color-white);
+        background-color: color(white);
         padding: 10px 10px 20px;
         @include t(0.3s);
 
@@ -53,14 +53,14 @@
           @include f(16);
           font-family: $fontPrimary;
           font-weight: normal;
-          color: var(--color-black);
+          color: color(black);
           text-transform: uppercase;
           text-align: center;
           display: grid;
           gap: 20px;
         
           &:hover{
-            color: var(--color-black);
+            color: color(black);
           }
 
           img{
@@ -94,8 +94,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: var(--color-secondary);
-        color: var(--color-white);
+        background-color: color(zinc-300);
+        color: color(white);
         font-family: $fontPrimary;
         font-weight: normal;
         @include f(16, 16);
@@ -107,12 +107,12 @@
         @include t(0.3s);
         
         &:hover{
-          color: var(--color-white);
+          color: color(white);
           opacity: 0.9;
         }
 
         .icon-plus{
-          stroke: var(--color-white);
+          stroke: color(white);
           stroke-width: 4px;
           width: 15px;
           height: 15px;

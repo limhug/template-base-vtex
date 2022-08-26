@@ -4,7 +4,7 @@
 }
 
 // Size
-@mixin s($width, $height: $width) {
+@mixin s($width, $height: auto) {
   width: $width + px;
   height: $height + px;
 }
