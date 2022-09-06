@@ -1,81 +1,42 @@
-.c-instagram{
+.instagram{
   position: relative;
   background-color: var(zinc-300);
-  padding: 50px 0;
-
-  &::before{
-    content: '';
-    position: absolute;
-    top: -60px;
-    left: -15px;
-    background-image: url('/arquivos/flor-esquerda.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 130px;
-    height: 145px;
-    overflow: hidden;
-
-    @include d(mdMax){
-      top: -40px;
-      width: 90px;
-      left: -10px;
-    }
-  }
-
-  &::after{
-    content: '';
-    position: absolute;
-    top: -35px;
-    right: -20px;
-    background-image: url('/arquivos/folhas-direita.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 140px;
-    height: 100px;
-    overflow: hidden;
-
-    @include d(mdMax){
-      right: -49px;
-      height: 75px;
-      top: -22px;
-    }
-  }
+  padding: rem(50) 0;
 	
 	h2{
 		@include f(24);
 		text-align: center;
 		font-weight: 700;
-		margin-bottom: 5px;
+		margin-bottom: rem(5);
 		color: color(zinc-800);
 	}
-
   
 	&__content{
     display: grid;
-		gap: 10px;
+		gap: rem(10);
     
     &-title{
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-bottom: 15px;
+      margin-bottom: rem(15);
       
       .icon-insta{
-        width: 40px;
-        height: 40px;
+        width: rem(40);
+        height: rem(40);
         fill: color(zinc-800);
-        margin-bottom: 5px;
+        margin-bottom: rem(5);
       }
       
       span{
         font-family: $fontPrimary;
         @include f(24);
         text-transform: uppercase;
-        letter-spacing: 10px;
+        letter-spacing: rem(10);
         color: color(zinc-800);
         font-weight: normal;
-        margin-bottom: 25px;
+        margin-bottom: rem(25);
       }
   
       a{
@@ -89,7 +50,7 @@
     &-list{
       display: grid;
 		  grid-template-columns: repeat(2, 1fr);
-		  gap: 10px;
+		  gap: rem(10);
 
       @include d(sm){
         grid-template-columns: repeat(3, 1fr);
@@ -103,58 +64,57 @@
     &-item{
       overflow: hidden;
       width: 100%;
-      height: 197px;
-      border-radius: 5px;
+      height: rem(197);
+      border-radius: rem(5);
 
       @include d(sm){
-        width: 165px;
-        height: 165px;
-        @include s(165, 165);
+        width: rem(165);
+        height: rem(165);
       }
       @include d(md){
-        width: 225px;
-        height: 225px;
+        width: rem(225);
+        height: rem(225);
       }
       @include d(lg){
-        width: 147px;
-        height: 147px;
+        width: rem(147);
+        height: rem(147);
       }
       @include d(xl){
-        width: 177px;
-        height: 177px;
+        width: rem(177);
+        height: rem(177);
       }
       @include d(xxl){
-        width: 207px;
-        height: 207px;
+        width: rem(207);
+        height: rem(207);
       }
     }
 
 		&-image{
-			border-radius: 5px;
-			width: 100%;
-      height: 197px;
+      width: 100%;
+      height: rem(197);
 			object-fit: cover;
+			border-radius: rem(5);
 			@include t(0.3s);
 
       @include d(sm){
-        width: 165px;
-        height: 165px;
+        width: rem(165);
+        height: rem(165);
       }
       @include d(md){
-        width: 225px;
-        height: 225px;
+        width: rem(225);
+        height: rem(225);
       }
       @include d(lg){
-        width: 147px;
-        height: 147px;
+        width: rem(147);
+        height: rem(147);
       }
       @include d(xl){
-        width: 177px;
-        height: 177px;
+        width: rem(177);
+        height: rem(177);
       }
       @include d(xxl){
-        width: 207px;
-        height: 207px;
+        width: rem(207);
+        height: rem(207);
       }
 
 			&:hover{

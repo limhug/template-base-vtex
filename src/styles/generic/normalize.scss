@@ -9,7 +9,7 @@
  */
 
  html {
-  line-height: 1.15; /* 1 */
+  line-height: rem(18); /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
@@ -38,8 +38,8 @@ main {
  */
 
 h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
+  font-size: rem(32);
+  margin: rem(10) 0;
 }
 
 /* Grouping content
@@ -63,7 +63,7 @@ hr {
 
 pre {
   font-family: monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-size: rem(16); /* 2 */
 }
 
 /* Text-level semantics
@@ -106,7 +106,7 @@ code,
 kbd,
 samp {
   font-family: monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-size: rem(16); /* 2 */
 }
 
 /**
@@ -131,11 +131,11 @@ sup {
 }
 
 sub {
-  bottom: -0.25em;
+  bottom: rem(-4);
 }
 
 sup {
-  top: -0.5em;
+  top: rem(-8);
 }
 
 /* Embedded content
@@ -164,7 +164,7 @@ select,
 textarea {
   font-family: inherit; /* 1 */
   font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
+  line-height: rem(18); /* 1 */
   margin: 0; /* 2 */
 }
 
@@ -219,7 +219,7 @@ button:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
+  outline: rem(1) dotted ButtonText;
 }
 
 /**
@@ -227,7 +227,7 @@ button:-moz-focusring,
  */
 
 fieldset {
-  padding: 0.35em 0.75em 0.625em;
+  padding: rem(5) rem(12) rem(10);
 }
 
 /**
@@ -289,7 +289,7 @@ textarea {
 
 [type="search"] {
   -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
+  outline-offset: rem(-2); /* 2 */
 }
 
 /**

@@ -1,4 +1,4 @@
-.c-minicart{
+.minicart{
   font-family: $fontPrimary;
   position: fixed;
   top: 0;
@@ -156,7 +156,7 @@
   }
 
   &__box{
-    background-color: color(white);
+    background-color: #ffffff;
     padding: 15px;
     display: grid;
     grid-template-columns: 60px 1fr;
@@ -322,7 +322,7 @@
         position: absolute;
         background-color: color(primary);
         font-family: $fontPrimary;
-        color: color(white);
+        color: #ffffff;
         @include f(18, 18);
         width: 30px;
         height: 30px;
@@ -345,7 +345,7 @@
 
     button{
       background-color: color(primary);
-      color: color(white);
+      color: #ffffff;
       padding: 0 20px;
       @include f(18, 60);
       text-transform: uppercase;
@@ -363,7 +363,7 @@
     padding: 20px 50px;
     position: fixed;
     bottom: 0;
-    background-color: color(white);
+    background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
     @include d(mdMax){
@@ -481,7 +481,7 @@
         @include f(16, 45);
         background-color: color(lime-600);
         border: 1px solid color(lime-600);
-        color: color(white);
+        color: #ffffff;
         text-align: center;
         text-transform: uppercase;
         margin-bottom: 20px;

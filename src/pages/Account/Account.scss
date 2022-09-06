@@ -1,30 +1,30 @@
 .page-account{
   &-main{
-    margin-top: 134px;
+    margin-top: rem(134);
 
     @include d(md){
-      margin-top: 212px;
+      margin-top: rem(212);
     }
   }
 
-  .c-account{
+  .account{
     display: block;
-    margin: 30px 0;
+    margin: rem(30) 0;
     font-family: $fontPrimary;
 
     .vtex-account{
-      background-color: var(--color-white);
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 0 rem(10) rgba(0,0,0,0.1);
+      border-radius: rem(10);
 
       > .w-100{
         display: grid;
-        padding: 20px;
-        gap: 20px;
+        padding: rem(20);
+        gap: rem(20);
         margin: 0;
 
         @include d(lg){
-          grid-template-columns: 190px 1fr;
+          grid-template-columns: rem(190) 1fr;
           gap: 0;
         }
       }
@@ -65,14 +65,14 @@
         font-family: $fontPrimary;
         color: var(--color-secondary);
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: rem(1);
       }
 
       .vtex-pageHeader__children{
         button{
           outline: 0;
           background-color: var(--color-secondary);
-          color: var(--color-white);
+          color: #ffffff;
           border: 0;
           @include t(0.3s);
 
@@ -89,7 +89,7 @@
       .vtex-account__page{
         iframe{
           body{
-            background-color: var(--color-white) !important;
+            background-color: #ffffff !important;
           }
 
           .vtex-input__label{
@@ -113,7 +113,7 @@
         }
 
         .vtex-dropdown__arrow{
-          color: #3f3f40 !important;
+          color: color(zinc-700) !important;
         }
 
         .c-link{
@@ -124,7 +124,7 @@
           .bg-action-primary{
             outline: 0;
             background-color: var(--color-secondary) !important;
-            color: var(--color-white) !important;
+            color: #ffffff !important;
             border: 0;
             @include t(0.3s);
 
@@ -141,15 +141,15 @@
 
         article{
           main{
-            padding: 20px !important;
+            padding: rem(20) !important;
           }
 
           footer{
-            padding: 0 20px 20px;
+            padding: 0 rem(20) rem(20);
 
             button{
               background-color: var(--color-secondary) !important;
-              color: var(--color-white);
+              color: #ffffff;
               border: 0;
               outline: 0;
               @include t(0.3s);

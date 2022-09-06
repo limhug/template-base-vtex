@@ -7,7 +7,7 @@
   padding: 20px 0 50px;
   z-index: 9999 !important;
   
-  .c-results{
+  .results{
     margin: 0 auto;
     width: 95%;
 
@@ -41,7 +41,7 @@
       }
       
       &-item{
-        background-color: color(white);
+        background-color: #ffffff;
         padding: 10px 10px 20px;
         @include t(0.3s);
 
@@ -53,14 +53,14 @@
           @include f(16);
           font-family: $fontPrimary;
           font-weight: normal;
-          color: color(black);
+          color: #000000;
           text-transform: uppercase;
           text-align: center;
           display: grid;
           gap: 20px;
         
           &:hover{
-            color: color(black);
+            color: #000000;
           }
 
           img{
@@ -95,7 +95,7 @@
         align-items: center;
         justify-content: center;
         background-color: color(zinc-300);
-        color: color(white);
+        color: #ffffff;
         font-family: $fontPrimary;
         font-weight: normal;
         @include f(16, 16);
@@ -107,12 +107,12 @@
         @include t(0.3s);
         
         &:hover{
-          color: color(white);
+          color: #ffffff;
           opacity: 0.9;
         }
 
         .icon-plus{
-          stroke: color(white);
+          stroke: #ffffff;
           stroke-width: 4px;
           width: 15px;
           height: 15px;

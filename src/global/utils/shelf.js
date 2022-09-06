@@ -8,16 +8,16 @@ $(function () {
   const shelf = {
     init: function () {
       shelf.pricePercent()
-      shelf.listShelf()
-      shelf.ofertaDoDia()
-      shelf.variantesCompraRapida()
-      shelf.shelfCarousel()
+      // shelf.listShelf()
+      // shelf.ofertaDoDia()
+      // shelf.variantesCompraRapida()
+      // shelf.shelfCarousel()
     },
 
     pricePercent: function () {
-      $('.c-shelf').each(function () { 
-        const valInitial = parseFloat($(this).find('.c-shelf__info-listPrice').text().replace('R$ ', '').replace('.', '').replace(',', '.'))
-        const valFinish = parseFloat($(this).find('.c-shelf__info-bestPrice').text().replace('R$ ', '').replace('.', '').replace(',', '.'))
+      $('.shelf').each(function () { 
+        const valInitial = parseFloat($(this).find('.shelf__info-listPrice').text().replace('R$ ', '').replace('.', '').replace(',', '.'))
+        const valFinish = parseFloat($(this).find('.shelf__info-bestPrice').text().replace('R$ ', '').replace('.', '').replace(',', '.'))
         const percentage = Math.round((valFinish - valInitial) * 100 / valInitial).toString().replace('-', '')
   
         $(this).find('.percentage').html(`${percentage}% Off`)
@@ -25,7 +25,7 @@ $(function () {
     },
 
     listShelf: function () {
-      $('.c-productVitrine ul').eq(0).addClass('c-productVitrine__content-list')
+      $('.productVitrine ul').eq(0).addClass('productVitrine__content-list')
     },
 
     ofertaDoDia: function () {
@@ -78,15 +78,15 @@ $(function () {
 
     variantesCompraRapida: function () {
       setTimeout(function () {
-        $('.c-shelf').not('.c-shelf__ajax-completed').each(function (index, el) {
+        $('.shelf').not('.shelf__ajax-completed').each(function (index, el) {
           var _element = $(this)
-              _element.addClass('c-shelf__ajax-completed'),
-              _element.find('.c-shelf__selection').prepend(`
+              _element.addClass('shelf__ajax-completed'),
+              _element.find('.shelf__selection').prepend(`
                 <div class="list-skus-hidden"></div>
-                <ul class="c-shelf__selection-colors"></ul>
+                <ul class="shelf__selection-colors"></ul>
               `)
 
-          var _product_id = _element.find('.c-shelf__id').val()
+          var _product_id = _element.find('.shelf__id').val()
           
           var avSku
 
@@ -110,7 +110,7 @@ $(function () {
               var _color_name = colorName[i]
 
               if (_color_name !== undefined) {
-                _element.find('.c-shelf__selection-colors').prepend(`
+                _element.find('.shelf__selection-colors').prepend(`
                   <li class="${_color_name}" data-color="${_color_name}">${_color_name}</li>
                 `)
               }
@@ -122,26 +122,26 @@ $(function () {
               var _SizeAvaileble = avSku[k].available
 
               if (_Size !== undefined) {
-                _element.find('.c-shelf__selection-variations').prepend(`
+                _element.find('.shelf__selection-variations').prepend(`
                   <li class="prod-size ${_Size} ${_SizeAvaileble}" data-size="${_Size}">${_Size}</li>
                 `)
               }
             }
           })
 
-          $(document).on('click', '.c-shelf__selection-variations li, .c-shelf__selection-colors li', function () {
+          $(document).on('click', '.shelf__selection-variations li, .shelf__selection-colors li', function () {
             
             $(this).parent().find('li').removeClass('active'),
             $(this).addClass('active')
             
-            _element.find('.c-shelf__selection-button .buy').removeAttr('href')
+            _element.find('.shelf__selection-button .buy').removeAttr('href')
 
           })
 
-          _element.find('.c-shelf__selection-button').hover(function () {
+          _element.find('.shelf__selection-button').hover(function () {
 
-            var selectorSize = $('.c-shelf__selection-variations li.active').attr('data-size')
-            var selectorColor = $('.c-shelf__selection-colors li.active').attr('data-color')
+            var selectorSize = $('.shelf__selection-variations li.active').attr('data-size')
+            var selectorColor = $('.shelf__selection-colors li.active').attr('data-color')
 
             _element.parent().find(`
               .list-skus-hidden input[data-size="${selectorSize}"][data-color="${selectorColor}"]
@@ -149,7 +149,7 @@ $(function () {
 
           })
 
-          _element.find('.c-shelf__selection-button').click(function () {
+          _element.find('.shelf__selection-button').click(function () {
             var _sku = _element.parent().find('.selected')
 
             if (_sku.attr('data-available') == 'false') {
@@ -195,12 +195,12 @@ $(function () {
     },
 
     shelfCarousel: function () {
-      $('.c-productVitrine__navigation-prev').append(_variables.left)
-      $('.c-productVitrine__navigation-next').append(_variables.right)
+      $('.productVitrine__navigation-prev').append(_variables.left)
+      $('.productVitrine__navigation-next').append(_variables.right)
 
-      $('.c-productVitrine .helperComplement').remove()
+      $('.productVitrine .helperComplement').remove()
 
-      const shelf = $('.c-productVitrine__content-list')
+      const shelf = $('.productVitrine__content-list')
       
       shelf.owlCarousel({
         loop: true,
@@ -230,11 +230,11 @@ $(function () {
         }
       })
 
-      $('.c-productVitrine__navigation-prev').on('click', function(){
+      $('.productVitrine__navigation-prev').on('click', function(){
         shelf.trigger('prev.owl.carousel')
       })
 
-      $('.c-productVitrine__navigation-next').on('click', function(){
+      $('.productVitrine__navigation-next').on('click', function(){
         shelf.trigger('next.owl.carousel')
       })
     },

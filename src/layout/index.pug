@@ -6,15 +6,16 @@ block vars
 doctype
 html(xmlns='http://www.w3.org/1999/xhtml', xmlns:vtex='http://www.vtex.com.br/2009/vtex-common', xmlns:vtex.cmc='http://www.vtex.com.br/2009/vtex-commerce', lang='pt-br')
   head
+    meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")/
     meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0')/
     vtex:metaTags/
     vtex:contentPlaceHolder(id="tituloDaPagina")/
-    vtex:template(id="Global-Styles")/
+    vtex:template(id="01-Global-Styles")/
     block styles
     block richSnippetsHead
 
   body
-    vtex:template(id="Header")/
+    vtex:template(id="01-Header")/
 
     //- Main Content
     main(role='main', class=`${$templateClass}-main`)
@@ -22,8 +23,8 @@ html(xmlns='http://www.w3.org/1999/xhtml', xmlns:vtex='http://www.vtex.com.br/20
 
     //- Footer
     block footer
-      vtex:template(id="Footer")/
+      vtex:template(id="01-Footer")/
 
     //- Scripts
     block scripts
-      vtex:template(id="Global-Scripts")/
+      vtex:template(id="01-Global-Scripts")/

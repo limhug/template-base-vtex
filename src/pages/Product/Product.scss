@@ -8,8 +8,8 @@
     }
   }
   
-  .c-product{
-    background-color: var(--color-white);
+  .product{
+    background-color: #ffffff;
     padding: 20px 0;
     margin-bottom: 30px;
 
@@ -28,7 +28,7 @@
     }
   }
 
-  .c-image {
+  .image {
     position: relative;
 
     #show {
@@ -189,10 +189,6 @@
         z-index: 9;
       }
       
-      .icon-left{
-        
-      }
-      
       .icon-right{
         right: 0;
       }
@@ -217,9 +213,9 @@
     }
   }
 
-  .c-info{
+  .info{
     font-family: $fontPrimary;
-    background-color: var(--color-white);
+    background-color: #ffffff;
     width: 100%;
     
     @include d(lg){
@@ -231,7 +227,7 @@
     }
 
     &__breadcrumb {
-      background-color: var(--color-white);
+      background-color: #ffffff;
     
       ul {
         font-family: $fontPrimary;
@@ -444,7 +440,7 @@
               margin: 0;
               width: 60px;
               height: 40px;
-              background-color: var(--color-white);
+              background-color: #ffffff;
               @include f(14, 14);
               text-transform: uppercase;
               color: var(--color-secondary);
@@ -456,13 +452,13 @@
               }
   
               &:hover {
-                color: var(--color-white);
+                color: #ffffff;
                 background-color: var(--color-secondary);
                 border: 1px solid var(--color-secondary);
               }
   
               &.sku-picked {
-                color: var(--color-white);
+                color: #ffffff;
                 background-color: var(--color-secondary);
                 border: 1px solid var(--color-secondary);
               }
@@ -541,7 +537,7 @@
         letter-spacing: 1px;
         background-color: var(--color-buy);
         border: 1px solid var(--color-buy);
-        color: var(--color-white);
+        color: #ffffff;
         text-align: center;
         text-transform: uppercase;
         margin-top: 5px;
@@ -590,7 +586,7 @@
           }
 
           input {
-            background-color: var(--color-white);
+            background-color: #ffffff;
             border: 1px solid rgba(0,0,0,0.1);
             border-radius: 3px;
             margin-right: 5px;
@@ -706,7 +702,7 @@
 
               .valor {
                 background-color: var(--color-primary);
-                color: var(--color-black);
+                color: #000000;
                 font-weight: 700;
                 padding: 3px 5px;
                 @include f(10, 10);
@@ -766,8 +762,8 @@
         &__submit-cep,
         &__refreshCalc {
           margin: 0 auto;
-          background: var(--color-black);
-          color: var(--color-white);
+          background: #000000;
+          color: #ffffff;
           padding: 0 15px;
           @include f(14, 40);
           letter-spacing: 1px;
@@ -789,7 +785,7 @@
           &::before {
             content: "Calcule o frete e prazo de entrega.";
             @include f(16);
-            color: var(--color-black);
+            color: #000000;
             font-weight: 400;
             display: block;
             margin-bottom: 10px;
@@ -820,7 +816,7 @@
                     @include f(0);
 
                     input {
-                      background: var(--color-white);
+                      background: #ffffff;
                       padding: 0.8em;
                       max-width: 150px;
                       @include f(16);
@@ -839,10 +835,10 @@
                   .frete-calcular {
                     input {
                       padding: 0.9em;
-                      background: var(--color-black);
+                      background: #000000;
                       cursor: pointer;
                       @include f(15);
-                      color: var(--color-white);
+                      color: #ffffff;
                       font-weight: 600;
                       border: 0;
                     }
@@ -869,7 +865,7 @@
                   th {
                     text-align: left;
                     @include f(13);
-                    border-bottom: 1px solid var(--color-black);
+                    border-bottom: 1px solid #000000;
                     padding: 5px;
                   }
 
@@ -892,7 +888,7 @@
     }
   }
 
-  .c-productVitrine{
+  .productVitrine{
     margin-bottom: 50px;
 
     h2{

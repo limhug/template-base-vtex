@@ -13,7 +13,7 @@ $(function () {
     },
 
     icons: function () {
-      $('.page-login .c-filters__content-header').append(_variables.close)
+      
     },
 
   }

@@ -23,18 +23,18 @@ $(function () {
     },
 
     scrollbarList: function () {
-      Scrollbar.init(document.querySelector('.c-minicart__content-list'))
+      Scrollbar.init(document.querySelector('.minicart__content-list'))
     },
     
     icons: function () {
-      $('.c-minicart__header-links .close').prepend(_variables.left)
-      $('.c-minicart__empty span').prepend(_variables.bag)
+      $('.minicart__header-links .close').prepend(_variables.left)
+      $('.minicart__empty span').prepend(_variables.bag)
     },
 
     closeMinicart: function () {
-      $('.c-minicart__empty button, .continueToBuy').on('click', function () {
-        $('.c-minicart').removeClass('open')
-        $('.c-minicart__overlay').removeClass('open')
+      $('.minicart__empty button, .continueToBuy').on('click', function () {
+        $('.minicart').removeClass('open')
+        $('.minicart__overlay').removeClass('open')
         $('body').removeAttr('style')
       })
     },
@@ -45,7 +45,7 @@ $(function () {
 
     removeItem: function (t) {
       
-      var e = $(t).parents('.c-minicart__box').index() - 1
+      var e = $(t).parents('.minicart__box').index() - 1
 
       vtexjs.checkout.getOrderForm().done(function (t) {
         var r = e,
@@ -59,11 +59,11 @@ $(function () {
         minicart.isEmptyCart(),
         minicart.mountCart()
         
-        $('.c-minicart__content-list .c-minicart__box').each(function(){
-          var elemNow = $(this).find('.c-minicart__box-title h4:contains("brinde")')
+        $('.minicart__content-list .minicart__box').each(function(){
+          var elemNow = $(this).find('.minicart__box-title h4:contains("brinde")')
           
-          elemNow.parents().eq(2).find('.c-minicart__box-price').hide()
-          elemNow.parents().eq(2).find('.c-minicart__box-remove').hide()
+          elemNow.parents().eq(2).find('.minicart__box-price').hide()
+          elemNow.parents().eq(2).find('.minicart__box-remove').hide()
 
         })
       })
@@ -72,13 +72,13 @@ $(function () {
     isEmptyCart: function () {
       var t = vtexjs.checkout.orderForm.items.length
 
-      0 == $('.c-minicart__empty').show(),
-      t > 0 ? ($('.c-minicart__empty').hide(), $('.c-minicart__badge, .c-minicart__footer').show()) : ($('.c-minicart__footer').hide(), $('.c-minicart__content-title').show())
+      0 == $('.minicart__empty').show(),
+      t > 0 ? ($('.minicart__empty').hide(), $('.minicart__badge, .minicart__footer').show()) : ($('.minicart__footer').hide(), $('.minicart__content-title').show())
     },
 
     checkIndex: function (t, e) {
-      $('.c-minicart__box').length > 0
-        ? $('.c-minicart__box').each(function () {
+      $('.minicart__box').length > 0
+        ? $('.minicart__box').each(function () {
             if ($(this).attr('dataskuid') == t) {
 
               var r = $(this).index(),
@@ -91,7 +91,7 @@ $(function () {
     },
 
     toggleMinicartTimeout: function () {
-      var t = $('.c-minicart')
+      var t = $('.minicart')
       
       $(window).width() > 520 && t.addClass('open'),
       setTimeout(function () {
@@ -154,34 +154,34 @@ $(function () {
 
       $('.quantity-price').html(minicart.formatPrice(i / 100)),
       $('.c-header .cart .qtd-cart').text(e),
-      $('.c-minicart__badge').text(e),
-      $('.c-minicart__itens').text(e > 1 ? 'produtos' : 'produto'),
-      $('.c-minicart__box').remove()
+      $('.minicart__badge').text(e),
+      $('.minicart__itens').text(e > 1 ? 'produtos' : 'produto'),
+      $('.minicart__box').remove()
 
       for (r = 0; r < t; r++) {
         const listPrice = minicart.formatPrice((vtexjs.checkout.orderForm.items[r].listPrice * vtexjs.checkout.orderForm.items[r].quantity) / 100)
         const bestPrice = minicart.formatPrice((vtexjs.checkout.orderForm.items[r].price * vtexjs.checkout.orderForm.items[r].quantity) / 100)
         $(`
-          <div class="c-minicart__box" dataprodid="${vtexjs.checkout.orderForm.items[r].productId}" dataskuid="${vtexjs.checkout.orderForm.items[r].id}" dataqtd="${vtexjs.checkout.orderForm.items[r].quantity}">
-            <div class="c-minicart__box-image">
+          <div class="minicart__box" dataprodid="${vtexjs.checkout.orderForm.items[r].productId}" dataskuid="${vtexjs.checkout.orderForm.items[r].id}" dataqtd="${vtexjs.checkout.orderForm.items[r].quantity}">
+            <div class="minicart__box-image">
               <a href="${vtexjs.checkout.orderForm.items[r].detailUrl}">
                 <img src="${vtexjs.checkout.orderForm.items[r].imageUrl.replace('-55-55', '-100-100').replace('http', 'https')}" alt="${vtexjs.checkout.orderForm.items[r].name}" />
               </a>
             </div>
-            <div class="c-minicart__box-info">
-              <div class="c-minicart__box-info-content">
-                <div class="c-minicart__box-title">
+            <div class="minicart__box-info">
+              <div class="minicart__box-info-content">
+                <div class="minicart__box-title">
                   <a href="${vtexjs.checkout.orderForm.items[r].detailUrl}">
                     <h4>${vtexjs.checkout.orderForm.items[r].name}</h4>
                   </a>
                 </div>
-                <div class="c-minicart__box-qtdePrice">
-                  <div class="c-minicart__box-qtde">
+                <div class="minicart__box-qtdePrice">
+                  <div class="minicart__box-qtde">
                     <span class="qtde-remove"><i class="fas fa-minus"></i></span>
                     <span class="qtde-value">${vtexjs.checkout.orderForm.items[r].quantity}</span>
                     <span class="qtde-add"><i class="fas fa-plus"></i></span>
                   </div>
-                  <div class="c-minicart__box-price">
+                  <div class="minicart__box-price">
                     <span class="list-price">
                       ${listPrice}
                     </span>
@@ -191,48 +191,48 @@ $(function () {
                   </div>
                 </div>
               </div>
-              <div class="c-minicart__box-remove">
+              <div class="minicart__box-remove">
                 <i class="far fa-trash-alt"></i>
               </div>
             </div>
           </di>
-        `).appendTo('.c-minicart__content-list')
+        `).appendTo('.minicart__content-list')
       }
 
-      $('.c-minicart__box-qtde').removeClass('updating'),
+      $('.minicart__box-qtde').removeClass('updating'),
         vtexjs.checkout.orderForm &&
         vtexjs.checkout.orderForm.totalizers &&
         vtexjs.checkout.orderForm.totalizers &&
         vtexjs.checkout.orderForm.totalizers[0] &&
         vtexjs.checkout.orderForm.totalizers &&
         vtexjs.checkout.orderForm.totalizers[0].value
-          ? $('.c-minicart__value').html(minicart.formatPrice(vtexjs.checkout.orderForm.totalizers[0].value / 100))
-          : $('.c-minicart__value').html('R$ 00,00')
+          ? $('.minicart__value').html(minicart.formatPrice(vtexjs.checkout.orderForm.totalizers[0].value / 100))
+          : $('.minicart__value').html('R$ 00,00')
     },
 
     controlers: function () {
-      $('body').on('click', '.c-minicart__box-remove', function () {
+      $('body').on('click', '.minicart__box-remove', function () {
         minicart.removeItem(this)
       })
 
       $('body').on('click', '.qtde-add', function () {
 
-        var t = $(this).parents('.c-minicart__box').index() - 1,
+        var t = $(this).parents('.minicart__box').index() - 1,
             e = vtexjs.checkout.orderForm.items[t].quantity,
             r = vtexjs.checkout.orderForm.items[t].quantity + 1
 
-        $(this).parents('.c-minicart__box').find('.c-minicart__box-qtde').addClass('updating'),
+        $(this).parents('.minicart__box').find('.minicart__box-qtde').addClass('updating'),
         minicart.updateItem(this, r, t, e)
 
       })
 
       $('body').on('click', '.qtde-remove', function () {
 
-        var t = $(this).parents('.c-minicart__box').index() - 1,
+        var t = $(this).parents('.minicart__box').index() - 1,
             e = vtexjs.checkout.orderForm.items[t].quantity,
             r = vtexjs.checkout.orderForm.items[t].quantity - 1
 
-        $(this).parents('.c-minicart__box').find('.c-minicart__box-qtde').addClass('updating'),
+        $(this).parents('.minicart__box').find('.minicart__box-qtde').addClass('updating'),
         minicart.updateItem(this, r, t, e)
 
       })
@@ -249,7 +249,7 @@ $(function () {
 
       }).then(function (t) {
 
-        vtexjs.checkout.orderForm.items[o].quantity < e ? $('.c-minicart__box').eq(o).find('.c-minicart__box-qtde').addClass('limit') : $('.c-minicart__box').eq(o).find('.c-minicart__box-qtde').removeClass('limit')
+        vtexjs.checkout.orderForm.items[o].quantity < e ? $('.minicart__box').eq(o).find('.minicart__box-qtde').addClass('limit') : $('.minicart__box').eq(o).find('.minicart__box-qtde').removeClass('limit')
 
       })
     },
@@ -312,15 +312,15 @@ $(function () {
     },
 
     verificaAdicaoSubtracaoCart: function(){
-      $(document).on('click', '.qtde-remove, .qtde-add, .c-shelf__selection-button .buy, .c-minicart__box-remove', (function() {
+      $(document).on('click', '.qtde-remove, .qtde-add, .c-shelf__selection-button .buy, .minicart__box-remove', (function() {
         minicart.verificaValorFreteGratis()
       }))
     },
 
     listHeight: function (){
-      const footterHeight = $('.c-minicart__footer').innerHeight()
+      const footterHeight = $('.minicart__footer').innerHeight()
       
-      $('.c-minicart__content').css('height', `calc(100% - ${footterHeight + 78}px)`)
+      $('.minicart__content').css('height', `calc(100% - ${footterHeight + 78}px)`)
     }
 
   }

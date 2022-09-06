@@ -21,15 +21,15 @@ $(function () {
     },
 
     icons: function () {
-      $('.page-department .c-filters__content-header').append(_variables.close)
-      $('.page-department .c-filters__link').append(_variables.down)
-      $('.page-department .c-orderBy__title').append(_variables.down)
+      $('.page-department .filters__content-header').append(_variables.close)
+      $('.page-department .filters__link').append(_variables.down)
+      $('.page-department .orderBy__title').append(_variables.down)
       $('.page-department .clear-filter-btn').prepend('<i class="far fa-trash-alt"></i>')
     },
 
     listShelf: function () {
-      $('.page-department .shelf ul').addClass('c-list__shelf-list')
-      $('.page-department .c-list__shelf-list li').addClass('c-list__shelf-item')
+      $('.page-department .shelf ul').addClass('list__shelf-list')
+      $('.page-department .list__shelf-list li').addClass('list__shelf-item')
 
     },
     
@@ -39,28 +39,28 @@ $(function () {
 
     openFilter: function (){
       if ($(window).width() < 767.98){
-        $('.c-filters__content').removeAttr('style')
+        $('.filters__content').removeAttr('style')
 
-        $('.c-filters__link').on('click', function(){
-          $('.c-filters__content').addClass('active')
+        $('.filters__link').on('click', function(){
+          $('.filters__content').addClass('active')
           $('.mask').addClass('active')
         })
       } else {
-        $('.c-filters__link').on('click', function(){
-          $('.c-filters__content').slideDown('fast')
+        $('.filters__link').on('click', function(){
+          $('.filters__content').slideDown('fast')
         })
       }
     },
 
     closeFilter: function (){
       if ($(window).width() < 767.98){
-        $('.c-filters__content-header .icon-close, .c-filters__content-body label').on('click', function(){
-          $('.c-filters__content').removeClass('active')
+        $('.filters__content-header .icon-close, .filters__content-body label').on('click', function(){
+          $('.filters__content').removeClass('active')
           $('.mask').removeClass('active')
         })
       } else {
-        $('.c-filters__content-header .icon-close, .c-filters__content-body label').on('click', function(){
-          $('.c-filters__content').slideUp('fast')
+        $('.filters__content-header .icon-close, .filters__content-body label').on('click', function(){
+          $('.filters__content').slideUp('fast')
         })
       }
     },
@@ -76,7 +76,7 @@ $(function () {
       })
       urlParams = copyParamns.join('&')
   
-      $('.c-orderBy__box a').each((i, link) => {
+      $('.orderBy__box a').each((i, link) => {
         let orderBy = link.dataset.value.replace('?', '')
         link.setAttribute('href', `${window.location.pathname}?${urlParams}&${orderBy}${window.location.hash}`
         )
@@ -84,24 +84,24 @@ $(function () {
     },
 
     openSelectOrder: function () {
-      $('.page-department .c-orderBy .c-orderBy__title').on('click', function (e) {
+      $('.page-department .orderBy .orderBy__title').on('click', function (e) {
         let element = e.currentTarget
         $(element).toggleClass('open')
-        $(element).siblings('.c-orderBy__box').slideToggle('fast')
+        $(element).siblings('.orderBy__box').slideToggle('fast')
       })
     },
 
     variantesCompraRapida: function () {
       setTimeout(function () {
-        $('.c-shelf').not('.c-shelf__ajax-completed').each(function (index, el) {
+        $('.shelf').not('.shelf__ajax-completed').each(function (index, el) {
           var _element = $(this)
-              _element.addClass('c-shelf__ajax-completed'),
-              _element.find('.c-shelf__selection').prepend(`
+              _element.addClass('shelf__ajax-completed'),
+              _element.find('.shelf__selection').prepend(`
                 <div class="list-skus-hidden"></div>
-                <ul class="c-shelf__selection-colors"></ul>
+                <ul class="shelf__selection-colors"></ul>
               `)
 
-          var _product_id = _element.find('.c-shelf__id').val()
+          var _product_id = _element.find('.shelf__id').val()
           
           var avSku
 
@@ -125,7 +125,7 @@ $(function () {
               var _color_name = colorName[i]
 
               if (_color_name !== undefined) {
-                _element.find('.c-shelf__selection-colors').prepend(`
+                _element.find('.shelf__selection-colors').prepend(`
                   <li class="${_color_name}" data-color="${_color_name}">${_color_name}</li>
                 `)
               }
@@ -137,26 +137,26 @@ $(function () {
               var _SizeAvaileble = avSku[k].available
 
               if (_Size !== undefined) {
-                _element.find('.c-shelf__selection-variations').prepend(`
+                _element.find('.shelf__selection-variations').prepend(`
                   <li class="prod-size ${_Size} ${_SizeAvaileble}" data-size="${_Size}">${_Size}</li>
                 `)
               }
             }
           })
 
-          $(document).on('click', '.c-shelf__selection-variations li, .c-shelf__selection-colors li', function () {
+          $(document).on('click', '.shelf__selection-variations li, .shelf__selection-colors li', function () {
             
             $(this).parent().find('li').removeClass('active'),
             $(this).addClass('active')
             
-            _element.find('.c-shelf__selection-button .buy').removeAttr('href')
+            _element.find('.shelf__selection-button .buy').removeAttr('href')
 
           })
 
-          _element.find('.c-shelf__selection-button').hover(function () {
+          _element.find('.shelf__selection-button').hover(function () {
 
-            var selectorSize = $('.c-shelf__selection-variations li.active').attr('data-size')
-            var selectorColor = $('.c-shelf__selection-colors li.active').attr('data-color')
+            var selectorSize = $('.shelf__selection-variations li.active').attr('data-size')
+            var selectorColor = $('.shelf__selection-colors li.active').attr('data-color')
 
             _element.parent().find(`
               .list-skus-hidden input[data-size="${selectorSize}"][data-color="${selectorColor}"]
@@ -164,7 +164,7 @@ $(function () {
 
           })
 
-          _element.find('.c-shelf__selection-button').click(function () {
+          _element.find('.shelf__selection-button').click(function () {
             var _sku = _element.parent().find('.selected')
 
             if (_sku.attr('data-available') == 'false') {
@@ -185,12 +185,12 @@ $(function () {
                 
                 vtexjs.checkout.addToCart([item]).done(function () {
 
-                  $('.c-minicart').addClass('open'),
-                  $('.c-minicart__overlay').addClass('open')
+                  $('.minicart').addClass('open'),
+                  $('.minicart__overlay').addClass('open')
                   
                   setTimeout(function () {
-                    $('.c-minicart').removeClass('open')
-                    $('.c-minicart__overlay').removeClass('open')
+                    $('.minicart').removeClass('open')
+                    $('.minicart__overlay').removeClass('open')
                   }, 5000)
 
                 })
@@ -267,18 +267,18 @@ $(function () {
 
       let btnClearFilter = $('.page-department .clear-filter-btn').clone(true, true)
 
-      $('.page-department .c-list__tags').html(`
+      $('.page-department .list__tags').html(`
         <div class='applied-filter'>
           <div id='filters'>
           </div>
         </div>
       `)
 
-      $('.page-department .c-list__tags').append(btnClearFilter)
+      $('.page-department .list__tags').append(btnClearFilter)
 
-      $('.page-department .c-list__tags .clear-filter-btn').on('click', function () {
+      $('.page-department .list__tags .clear-filter-btn').on('click', function () {
         $('.applied-filter__item').remove()
-        $('.c-list__tags').removeClass('active')
+        $('.list__tags').removeClass('active')
       })
   
       const appliedFiltersElement = $('.applied-filter')
@@ -295,11 +295,11 @@ $(function () {
         if (checkedFiltersLength <= 0){
           $(appliedFiltersElement).removeClass('applied-filter--draw')
           $('.navigation-tabs').removeClass('navigation-tabs--smaller')
-          $('.c-list__tags').removeClass('active')
+          $('.list__tags').removeClass('active')
         } else {
           $(appliedFiltersElement).addClass('applied-filter--draw')
           $('.navigation-tabs').addClass('navigation-tabs--smaller')
-          $('.c-list__tags').addClass('active')
+          $('.list__tags').addClass('active')
         }
 
         $('#applied-filters-title').text(
@@ -346,10 +346,10 @@ $(function () {
           button.find('span').remove()
           $('<span/>', { text: '(' + qtd + ')' }).appendTo(button)
   
-          $('.c-list__tags .clear-filter-btn').addClass('active')
+          $('.list__tags .clear-filter-btn').addClass('active')
         } else {
           button.find('span').remove()
-          $('.c-list__tags .clear-filter-btn').removeClass('active')
+          $('.list__tags .clear-filter-btn').removeClass('active')
         }
       }
   
@@ -361,7 +361,7 @@ $(function () {
         atualizarContagemDeFiltrosAtivos()
       })
   
-      $('.page-department .c-list__tags .vsr-clean-all-filter').on('click', function () {
+      $('.page-department .list__tags .vsr-clean-all-filter').on('click', function () {
         $('#open-filter-button').find('span').remove()
 
         $('.multi-search-checkbox').each(function () {

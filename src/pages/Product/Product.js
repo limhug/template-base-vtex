@@ -3,39 +3,27 @@
 /* eslint-disable no-undef */
 import './Product.scss'
 
-import ProductImage from '../../global/utils/productImages'
-import CepCalc from '../../global/utils/CepCalc'
+// import ProductImage from '../../global/utils/productImages'
+// import CepCalc from '../../global/utils/CepCalc'
 import getVariables from '../../global/utils/icons'
 
 const _variables = getVariables('icones')
 
 $(function () {
-  new ProductImage
-  new CepCalc($('.c-info__delivery'))
+  // new ProductImage
+  // new CepCalc($('.info__delivery'))
 
   const pageProduct = {
     init: function () {
       pageProduct.icons()
-      pageProduct.iconBreadcrumb()
-      pageProduct.descriptionText()
-      pageProduct.variations()
-      pageProduct.qtdProd()
-      pageProduct.fixFrete()
+      // pageProduct.descriptionText()
+      // pageProduct.variations()
+      // pageProduct.qtdProd()
+      // pageProduct.fixFrete()
     },
 
     icons: function () {
       
-    },
-
-    iconBreadcrumb: function () {
-      const linkHome = $('.c-info__breadcrumb ul li a').first()
-      linkHome.html('<span>Home</span>')
-
-      const breadcrumbItem = $('.c-info__breadcrumb li')
-
-      breadcrumbItem.each(function() {
-        $(this).append('<span class="divisoria">|</span>')
-      })
     },
 
     descriptionText: function () {
@@ -44,7 +32,7 @@ $(function () {
 
       if (descriptionHeight > 100){
         description.addClass('close')
-        $('.c-info__description-more').append('<div class="btn-more">Leia mais</div>')
+        $('.info__description-more').append('<div class="btn-more">Leia mais</div>')
       }
 
       $('.btn-more').click(function(){
@@ -55,15 +43,15 @@ $(function () {
     },
 
     variations: function () {
-      $('.c-info__variations .Tamanho .specification').html('Tamanhos disponíveis')
-      $('.c-info__variations').append('<div class="c-info__variations-quantity">')
+      $('.info__variations .Tamanho .specification').html('Tamanhos disponíveis')
+      $('.info__variations').append('<div class="info__variations-quantity">')
       
       vtexjs.catalog.getCurrentProductWithVariations().done(function(product){
-        $('.c-info__variations .Tamanho .dimension-Tamanho').each(function (index){
+        $('.info__variations .Tamanho .dimension-Tamanho').each(function (index){
 
           $(this).on('click', function(){
             if (product.skus[index].availablequantity < 3){
-              $('.c-info__variations-quantity').html(`
+              $('.info__variations-quantity').html(`
                 <div class="text">
                   ${_variables.exclamation}
                   <span>
@@ -77,7 +65,7 @@ $(function () {
         })
       })
 
-      $('.c-info__variations .Tamanho .dimension-Tamanho').on('click', function(){
+      $('.info__variations .Tamanho .dimension-Tamanho').on('click', function(){
       })
     },
 
@@ -110,7 +98,7 @@ $(function () {
 				}, 200)
 
 				// Prod
-				$('.page-product .c-info__buy .buy-button').click(function (event) {
+				$('.page-product .info__buy .buy-button').click(function (event) {
 					event.preventDefault()
 					var hrefCart = $(this).attr('href')
 					var qtd = $(this).parent().parent().parent().find('.qtdPrateleira .qtdVal').val()
@@ -162,12 +150,12 @@ $(function () {
                     $('.info-cart .qtd-cart').html(qtdCart)
 									})
 
-									$('.c-minicart').addClass('open'),
-                  $('.c-minicart__overlay').addClass('open'),
+									$('.minicart').addClass('open'),
+                  $('.minicart__overlay').addClass('open'),
 
                   setTimeout(function () {
-                    $('.c-minicart').removeClass('open')
-                    $('.c-minicart__overlay').removeClass('open')
+                    $('.minicart').removeClass('open')
+                    $('.minicart__overlay').removeClass('open')
                   }, 5000)
 								})
 

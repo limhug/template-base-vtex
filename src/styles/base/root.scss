@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  background-color: color(white);
+  background-color: #ffffff;
   box-sizing: border-box;
   min-height: 100%;
 
@@ -42,8 +42,8 @@ body {
     position: fixed;
     left: 0;
     bottom: 0;
-    width: 100px;
-    height: 100px;
+    width: rem(100);
+    height: rem(100);
     margin: auto;
     display: block !important;
     -webkit-box-orient: horizontal;
@@ -63,16 +63,16 @@ body {
 
     p {
       position: relative;
-      width: 50px;
-      height: 50px;
+      width: rem(50);
+      height: rem(50);
       border-radius: 100%;
       -webkit-animation: loader 0.5s linear infinite;
       animation: loader 0.5s linear infinite;
       border-color: #1b1b1b transparent;
       border-style: solid;
-      border-width: 1px;
+      border-width: rem(1);
       z-index: 9999;
-      margin: -25px 0 0 -25px;
+      margin: rem(-25) 0 0 rem(-25);
       top: 50%;
       left: 50%;
     }
@@ -98,31 +98,35 @@ body {
 .wrapper {
   padding: 0;
   width: 100%;
-  padding: 0 15px;
+  padding: 0 rem(15);
   min-height: initial;
 
+  // a partir de 576px
   @include d(sm) {
-    width: 100%;
-    max-width: 33.750em; // 540px
+    max-width: rem(540);
     margin: 0 auto;
     padding: 0;
   }
 
+  // a partir de 768px
   @include d(md) {
-    max-width: 45.000em; // 720px
+    max-width: rem(720);
   }
 
+  // a partir de 992px
   @include d(lg) {
-    max-width: 60.000em; // 960px
+    max-width: rem(960);
   }
 
+  // a partir de 1200px
   @include d(xl) {
-    max-width: 71.250em; // 1140px
+    max-width: rem(1140);
     padding: 0;
   }
 
+  // a partir de 1400px
   @include d(xxl) {
-    max-width: 82.500em; // 1320px
+    max-width: rem(1320);
   }
 }
 
