@@ -11,13 +11,13 @@ $(function () {
     init: function () {
       pageDepartment.icons()
       // pageDepartment.listShelf()
-      pageDepartment.removeHelperComplement()
-      pageDepartment.openFilter()
-      pageDepartment.closeFilter()
-      pageDepartment.orderBy()
-      pageDepartment.openSelectOrder()
-      pageDepartment.createAppliedFilters()
-      pageDepartment.smartResearch()
+      // pageDepartment.removeHelperComplement()
+      // pageDepartment.openFilter()
+      // pageDepartment.closeFilter()
+      // pageDepartment.orderBy()
+      // pageDepartment.openSelectOrder()
+      // pageDepartment.createAppliedFilters()
+      // pageDepartment.smartResearch()
     },
 
     icons: function () {

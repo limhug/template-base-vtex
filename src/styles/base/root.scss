@@ -17,6 +17,12 @@ body {
   font-family: $fontPrimary;
   @include f(16);
   overflow-x: hidden;
+
+  &.swal2-toast-shown{
+    .swal2-container{
+      z-index: 999999999 !important;
+    }
+  }
 }
 
 .c-mask{
